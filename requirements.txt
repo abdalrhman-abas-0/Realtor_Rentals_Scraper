@@ -1,0 +1,6 @@
+Package                   Version
+------------------------- -------------
+httpx-html                0.11.0.dev0
+pandas                    1.5.3
+tqdm                      4.64.1
+playwright                1.34.0
