@@ -102,11 +102,11 @@ class change_headers_ (change_headers):
         assign it to it's class attributes then it returns these attributes.
         
         Returns:
-            page_content (str): the first search page source code.
-            self.search_page_api_headers (dict): the search page post request headers.
-            self.result_api_headers (dict): a result page request headers.
-            self.requests_data_dict (dict): contains the body for each request needed
-                in the scraping process.
+            tuple[str, dict, dict, dict]: a tuple of 
+                the first search page source code,
+                the search page post request headers,
+                the result page request headers,
+                contains the body for each request needed in the scraping process.
         """    
         with sync_playwright() as p:
             while len(self.result_api_headers) == 0:
