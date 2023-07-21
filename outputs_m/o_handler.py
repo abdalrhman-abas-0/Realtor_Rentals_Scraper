@@ -204,8 +204,9 @@ class save_data_frames_(save_data_frames):
                 (default is "").
 
         Returns:
-            df (pandas.DataFrame): data frame of the concatenated main file.
-            df_index (int): the number of the last page scraped successfully.
+            tuple[pd.core.frame.DataFrame, int]: a tuple of 
+                the data frame of the concatenated main file,
+                the number of the last page scraped successfully.
         """        
         df_index = 0 
 
@@ -287,7 +288,7 @@ class save_data_frames_(save_data_frames):
             date_time (str): the date of the beginning of the scraping process.
 
         Returns:
-            df_length(int): the length of the merged DataFrame.
+            int: the length of the merged DataFrame.
         """         
         os.chdir('Outputs files') 
                 
