@@ -75,9 +75,10 @@ class headers_configuring(configure_headers) :
             page (int): The page number.
 
         Returns:
-            url (str): the API url of the request to be made.
-            get_data (str): the body of the post request to be made.
-            request_headers (dict): the headers of the post request to be made.
+            tuple[str,str,dict]: a tuple of
+                the API url of the request to be made,
+                the body of the post request to be made,
+                the headers of the post request to be made.
         """
         request_headers = self.search_page_api_headers.copy()
         url = request_headers["url"]
@@ -103,9 +104,10 @@ class headers_configuring(configure_headers) :
             web_page (str): The web page.
 
         Returns:
-            url (str): the API url of the request to be made.
-            get_data (str): the body of the post request to be made.
-            request_headers (dict): the headers of the post request to be made.
+            tuple[str, str, dict]: a tuple of 
+                the API url of the request to be made, 
+                the body of the post request to be made,
+                the headers of the post request to be made.
         """  
         request_headers = self.result_api_headers.copy()
         url = request_headers["url"]
@@ -169,7 +171,7 @@ class back_end_API_(back_end_API):
             request_body (str): The body of the request.
 
         Returns:
-            response (json): The response from the server.
+            json: The response from the server.
         """     
         response = None 
         slept = False     
@@ -199,7 +201,7 @@ class back_end_API_(back_end_API):
             page_content (str): The HTML content of the page.
 
         Returns:
-            response (dict): The parsed json data from the page.
+            dict: The parsed json data from the page.
         """
         parsedHtml = HTML(html= page_content)
         response = json.loads(parsedHtml.find("#__NEXT_DATA__")[0].text)
@@ -215,10 +217,3 @@ class back_end_API_(back_end_API):
         winsound.Beep(1000, 300)
         winsound.Beep(900, 250)
         winsound.Beep(800, 200)    
-
-
-            
-
-        
-                
-        
