@@ -21,18 +21,19 @@ def r_inputs (page_content: str) -> tuple[str, str, list, int, int, int, str, st
         page_content (str): the source code for the first search result page.
         
     Returns:
-        search_subject(str): the subject of which the search is being conducted.
-        search_location(str): the location of which the search is being conducted.
-        URL(str): the original url of the first page. 
-        initial_response(BeautifulSoup): soup object of the first page.
-        pages_to_scrape(list): the pages that will be scraped 
-            after checking the pages available for a certain search on the website.
-        page_counter(int): the pages scraped count.
-        results_scraped(int): results scraped count.
-        save_index(int): the number of the last saved file (primary/secondary).
-        s_listing(str): the URL of the last scraped result page.
-        txt_tracker(str): the name of the .txt file which records the scraping process.
-        date_time(str): the beginning time of the scraping process.
+        tuple[str, str, list, int, int, int, str, str, str]: a tuple of the 
+            subject of which the search is being conducted,
+            the location of which the search is being conducted,
+            the original url of the first page,
+            a soup object of the first page, 
+            list of the pages that will be scraped after checking the pages
+            available for a certain search on the website,
+            the pages scraped count, 
+            the results scraped count, 
+            the number of the last saved file (primary/secondary),
+            the URL of the last scraped result page, 
+            the name of the .txt file which records the scraping process, 
+            the beginning time of the scraping process.
     """    
     handlers_c =  i_handlers_()
     available_pages_to_scrape = available_pages_()
