@@ -103,11 +103,12 @@ class i_handlers_(i_handlers):
         of the scraper object.
 
         Returns:
-            self.results_scraped (int): the number of the scraped results.
-            self.save_index (int): the number of the last saved json file.
-            self.s_listing (str): the url of the last scraped listing.
-            txt_tracker (str): the name of the txt_tracker file.
-            date_time (str): the creation date of the txt_tracker file.
+            tuple[int, int, str, str, str]: a tuple of
+                the number of the scraped results,
+                the number of the last saved json file,
+                the url of the last scraped listing,
+                the name of the txt_tracker file,
+                the creation date of the txt_tracker file.
 
         Raises:
             FileNotFoundError: If the TXT_TRACKER file is not found in the Outputs files folder.
@@ -174,11 +175,12 @@ class i_handlers_(i_handlers):
         which will be later used to track the scraping process.
         
         Returns:
-            self.results_scraped (int): the number of the scraped results.
-            self.save_index (int): the number of the last saved json file.
-            self.s_listing (str): the url of the last scraped listing.
-            txt_tracker (str): the name of the txt_tracker file.
-            date_time (str): the creation date of the txt_tracker file.
+            tuple[int, int, str, str, str]: a tuple of,
+                the number of the scraped results,
+                the number of the last saved json file,
+                the url of the last scraped listing,
+                the name of the txt_tracker file,
+                the creation date of the txt_tracker file.
         """
         # Get the current date and time as a string, without the microseconds
         date_time = str(datetime.datetime.now())[:str(datetime.datetime.now()).index('.')].replace(':', '.')
@@ -222,7 +224,7 @@ class available_pages_(available_pages):
 
         used to extract the number of available pages for a search and assign it to 
         the pages_available class attribute, it uses the first page's source code 
-        which is passed as an str and if it's not passed it the pages_available equals 1.
+        which is passed as an str object and if it's not passed it the pages_available equals 1.
         
         Args:
             txt_tracker (str): The file name of the tracker.
@@ -264,7 +266,7 @@ class available_pages_(available_pages):
             page_counter (int): The current page number in the scraping process.
 
         Returns:
-            pages_to_scrape (list): A list of page numbers to scrape.
+            list: A list of page numbers to scrape.
         """
         # If the user input is greater than the available pages, use the latter
         if PAGES_TO_SCRAPE > self.pages_available:
