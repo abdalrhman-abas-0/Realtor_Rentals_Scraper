@@ -99,7 +99,7 @@ class scrapers_(scrapers):
             request (str): the request name send to the server.
             
         Returns:
-            json_response (dict): a dictionary fo the scraped data.
+            dict: a dictionary fo the scraped data.
 
         """
 
@@ -122,4 +122,4 @@ class scrapers_(scrapers):
                 json_response = "not available"
           
                 
-        return json_response   
+        return json_response
