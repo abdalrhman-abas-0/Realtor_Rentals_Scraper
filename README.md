@@ -1,12 +1,12 @@
 # **Realtor_Rentals_Scraper**
 
-* This project is a scraper template which can perform a seamless successful scraping process even if it faced a power outage or the site blocked the scraper and save the outputs as json files.
+* This project is a scraper template that can perform a seamless successful scraping process even if it faced a temporary blockage from the site or in case of a power outage and it saves the outputs as JSON files.
 * it's intended to work as a template suitable to be modified to work with many scraping libraries and across many sites.
-* it can use many scraping libraries like: BeautifulSoup, httpx, Selenium, and more.
+* it can use many scraping libraries like BeautifulSoup, HTTPS, Selenium, and more.
 
 # Project Structure:
 
-* This scraper consists mainly of 3 sub-packages and 3 module plus the run file and the Outputs files folder:
+* This scraper consists mainly of 3 sub-packages and 3 modules plus the run file and the Outputs files folder:
 
 ```python
 Realtor_Rentals_Scraper:
@@ -54,11 +54,11 @@ Realtor_Rentals_Scraper:
     re-configure the user inputs and create a new TXT_TRACKER file
     to record and track the scraping process.
 - f_crawlers.py:
-  * this module contains functions for initiating and running the crawler.
+  * This module contains functions for initiating and running the crawler.
   * it uses the scrapers_m module to request the website api and return
-    the json response which contain the desired data.
+    the JSON response which contains the desired data.
 - f_scraper.py:
-  * this module defines the stage from which the program will start running.
+  * This module defines the stage from which the program will start running.
   * it contains a function that reads a text file and determines the stage
     of the scraping process based on the txt_tracker file contents.
   * it uses the os module to change the working directory and handle file paths.
@@ -67,29 +67,29 @@ Realtor_Rentals_Scraper:
 
 ### 0. pre scraping stage:
 
-in this stage the inputs evaluated, modified to suit the program and the amount of results available for a certain scraping project, then it checks if it will continue an old scrape if yes it looks for the record of the old scrape in the .txt file which is already been input by the user in the input file if not the program creates a new .txt file to record the current scraping process.
+in this stage, the inputs are evaluated, and modified to suit the program and the amount of results available for a certain scraping project, then it checks if it will continue an old scrape if yes it looks for the record of the old scrape in the .txt file which is already been input by the user in the input file if not the program creates a new .txt file to record the current scraping process.
 
 ### **1. primary stage**:
 
 the program scrapes the results from the primary pagination pages available for a search and saves them page by page in .json file.
 
-### 2. saving the Primary files:
+### 2. Saving the Primary files:
 
-in this stage the program builds a pandas DataFrame for each primary file and save it as one main .json file then it deletes the primary .json files for each page.
+in this stage the program builds a pandas DataFrame for each primary file and saves it as one main .json file then it deletes the primary .json files for each page.
 
 ### **3. secondary stage**:
 
-this stage extracts the URLs for each result from the primary DataFrame built in the previous stage and scrape the results one by one or as asynchronous chunks and saves the results as .json files.
+this stage extracts the URLs for each result from the primary DataFrame built in the previous stage and scrapes the results one by one or as asynchronous chunks and saves the results as .json files.
 
-### 4.saving the Secondary files:
+### 4. Saving the Secondary files:
 
 as stage no. 2 This stage also builds a DataFrame from these files and saves it as one .json file then it deletes all the secondary files.
 
-### 5.joining the DataFrames:
+### 5. Joining the DataFrames:
 
-In this stage the primary and secondary stages are joined and saved into one file and the .txt file, primary & secondary files are deleted.
+In this stage, the primary and secondary stages are joined and saved into one file and the .txt file, primary & secondary files are deleted.
 
-> this stage from which the program will begin running from incase of continuing an uncompleted scraping is determined by f_scraper module after looking to the last step taken by the scraper in the .txt file which is saved in the scrapers_m sub-module and automatically erased after completion.
+> This stage from which the program will begin running from in case of continuing an uncompleted scraping is determined by f_scraper module after looking to the last step taken by the scraper in the .txt file which is saved in the scrapers_m sub-module and automatically erased after completion.
 
 ## Inputs module:
 
