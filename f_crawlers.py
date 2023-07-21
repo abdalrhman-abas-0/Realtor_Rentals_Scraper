@@ -19,15 +19,15 @@ from scrapers_m.headers import change_headers_
 import json
 
 def initiate_crawler() -> tuple[configure_headers, back_end_API, str]:
-    """Returns the headers, crawler and page content for scraping.
+    """ Returns the headers, crawler, and page content for scraping.
 
     it instantiates the headers_configuring, back_end_API_ and change_headers_
-    classes and returns those instances along with the first page source code.
+    classes and returns those instances along with the first-page source code.
     
     Returns:
-        headers (configure_headers): An instance of headers_configuring class.
-        crawler_ (back_end_API): An instance of back_end_API_ class.
-        page_content (str): A string of the page source.
+        tuple[configure_headers, back_end_API, str]: A tuple of
+            an instance of headers_configuring class, an instance of
+            back_end_API_ class, a string of the page source.
     """
     page_content, search_page_api_headers, result_api_headers, requests_data_dict = change_headers_(WEBSITE).get_headers()
     headers = headers_configuring(requests_data_dict, search_page_api_headers, result_api_headers)
@@ -60,7 +60,7 @@ def run_crawler(initiate_classes:initiate_crawler, headers:configure_headers, cr
         page_source(str, optional): A string of the page source, (default is "").
 
     Returns:
-        json_response (json): A dictionary of the json response from the crawler.
+        json: A dictionary of the json response from the crawler.
     """
     if page_source == "":
         while True:
