@@ -23,7 +23,7 @@ def stage_tracker(txt_tracker: str) -> int:
             it's defaults to "no" if a new scraping project is initiated.
             
     Returns:
-        stage(int): defines the stage from which the program will start running.
+        int: defines the stage from which the program will start running.
     """    
     os.chdir('Outputs files')
     stage = 0
